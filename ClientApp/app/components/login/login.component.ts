@@ -1,7 +1,7 @@
 ﻿import { Component, OnInit, OnDestroy, Input } from "@angular/core";
 
 import { AuthService } from '../../services/auth.service';
-import { AlertService } from '../../services/alert.service';
+import { AlertService, MessageSeverity } from '../../services/alert.service';
 import { UserLogin } from '../../models/user-login.model';
 
 @Component({
@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
                     
                 },
                 error => {
-                    this.alertService.error('Username or password is incorrect');
+                    this.alertService.showMessage('Username or password is incorrect');
                     this.loading = false;
                 });
     }
@@ -45,6 +45,6 @@ export class LoginComponent implements OnInit {
     }
 
     showErrorAlert(caption: string, message: string) {
-        this.alertService.error(message);
+        this.alertService.showMessage(caption, message, MessageSeverity.error);
     }
 }
