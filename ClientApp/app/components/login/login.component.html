@@ -9,7 +9,7 @@
             </div>
             <div class="panel-body">
                 <div class="col-md-8 col-md-offset-2">
-                    <form *ngIf="formResetToggle" class="form-horizontal login" name="loginForm" #f="ngForm" novalidate
+                    <form class="form-horizontal login" name="loginForm" #f="ngForm" novalidate
                           (ngSubmit)="f.form.valid ? login() :
                           (!email.valid && showErrorAlert('Email is required', 'Please enter a valid email'));
                           (!password.valid && showErrorAlert('Password is required', 'Please enter a valid password'))">
